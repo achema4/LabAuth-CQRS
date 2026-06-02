@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: cqrs-api
-          image: cqrs/auth-api:1.0
+          image: localhost/cqrs-api:1.0
           imagePullPolicy: Never
 
           ports:
