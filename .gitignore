@@ -18,6 +18,7 @@ bin/
 *.iml
 *.iws
 *.tar
+*.idea
 
 # NetBeans
 nb-configuration.xml
