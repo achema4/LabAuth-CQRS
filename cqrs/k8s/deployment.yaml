@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: cqrs-api
+  namespace: cqrs-lab
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: cqrs-api
+
+  template:
+    metadata:
+      labels:
+        app: cqrs-api
+
+    spec:
+      containers:
+        - name: cqrs-api
+          image: cqrs/auth-api:1.0
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8080
