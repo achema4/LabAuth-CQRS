@@ -23,11 +23,11 @@ jobs:
         run: mvn clean package
 
       - name: Build image with Podman
-        run: podman build -t auth-api:latest .
+        run: podman build -t cqrs-api:1.0 .
 
       - name: Import image into K3s
         run: |
-          podman save cqrs-api:latest -o cqrs-api.tar
+          podman save cqrs-api:1.0 -o cqrs-api.tar
           sudo k3s ctr images import cqrs-api.tar
 
       - name: Deploy to Kubernetes
