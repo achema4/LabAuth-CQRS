@@ -48,11 +48,12 @@
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
         </dependency>
-		
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-jdbc-sqlite</artifactId>
-		</dependency>
+	<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-jdbc-sqlite</artifactId>
+    <version>${quarkus.platform.version}</version>
+</dependency>	
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
