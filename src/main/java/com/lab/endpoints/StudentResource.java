@@ -2,10 +2,7 @@ package com.lab.endpoints;
 
 import com.lab.entity.Student;
 import jakarta.annotation.security.RolesAllowed;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/student")
@@ -20,14 +17,16 @@ public class StudentResource {
 
     @Path("/getStudent")
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Student getStudent() {
         return new Student("15","Chema");
     }
 
     @Path("/postStudent")
     @POST
-    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public String postStudent(Student student) {
         return "received student %s".formatted(student.getNombre());
     }
