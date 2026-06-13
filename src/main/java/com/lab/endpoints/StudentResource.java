@@ -1,0 +1,35 @@
+package com.lab.endpoints;
+
+import com.lab.entity.Student;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+
+@Path("/student")
+public class StudentResource {
+
+    @Path("/hello")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        return "Hello from Student REST";
+    }
+
+    @Path("/getStudent")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public Student getStudent() {
+        return new Student("15","Chema");
+    }
+
+    @Path("/postStudent")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public String postStudent(Student student) {
+        return "received student %s".formatted(student.getNombre());
+    }
+
+}

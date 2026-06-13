@@ -50,12 +50,41 @@
           </dependency>
 
           <!-- BBDD dependencies -->
+                <!-- JPA / Hibernate ORM -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+        </dependency>
 
         <dependency>
-          <groupId>org.xerial</groupId>
-          <artifactId>sqlite-jdbc</artifactId>
-          <version>3.46.1.0</version>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm</artifactId>
         </dependency>
+
+                <!-- H2 driver -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-h2</artifactId>
+        </dependency>
+        <!--  READ  driver -->
+            <!--  MapDB  driver -->
+        <dependency>
+            <groupId>org.mapdb</groupId>
+            <artifactId>mapdb</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+            <!--  JACKSON driver -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jackson</artifactId>
+        </dependency>
+
+        <!--  Openapi -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
+
 
 
         <dependency>
@@ -74,17 +103,6 @@
     <scope>test</scope>
 </dependency>
 
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-test-security</artifactId>
-    <scope>test</scope>
-</dependency>
-
-<dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>rest-assured</artifactId>
-    <scope>test</scope>
-</dependency>
   <dependency>
     <groupId>io.quarkus</groupId>
     <artifactId>quarkus-test-security</artifactId>
