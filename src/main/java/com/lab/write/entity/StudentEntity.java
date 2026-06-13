@@ -12,6 +12,7 @@ import jakarta.persistence.*;
 public class StudentEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String nombre;

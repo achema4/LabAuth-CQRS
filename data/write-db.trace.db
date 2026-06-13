@@ -240,3 +240,27 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: /mnt/c/Proyectos
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
 	... 40 more
+2026-06-14 01:39:25.047292+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "WRITE" no encontrada
+Table "WRITE" not found; SQL statement:
+select tbl."ID",tbl."NOMBRE" from WRITE-DB.PUBLIC.STUDENTS tbl [42102-240]
+2026-06-14 01:39:25.053835+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "WRITE" no encontrada
+Table "WRITE" not found; SQL statement:
+select tbl."ID",tbl."NOMBRE" from WRITE-DB.PUBLIC.STUDENTS tbl [42102-240]
+2026-06-14 01:39:25.054827+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "WRITE" no encontrada
+Table "WRITE" not found; SQL statement:
+select * from WRITE-DB.PUBLIC.STUDENTS tbl [42102-240]
+2026-06-14 01:39:29.194355+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "WRITE" no encontrada
+Table "WRITE" not found; SQL statement:
+select tbl."ID",tbl."ASIGNATURA",tbl."CREDITOS",tbl."STUDENT_ID",tbl."NOTA" from WRITE-DB.PUBLIC.MATRICULACIONES tbl [42102-240]
+2026-06-14 01:39:29.196350+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "WRITE" no encontrada
+Table "WRITE" not found; SQL statement:
+select tbl."ID",tbl."ASIGNATURA",tbl."CREDITOS",tbl."STUDENT_ID",tbl."NOTA" from WRITE-DB.PUBLIC.MATRICULACIONES tbl [42102-240]
+2026-06-14 01:39:29.196350+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "WRITE" no encontrada
+Table "WRITE" not found; SQL statement:
+select * from WRITE-DB.PUBLIC.MATRICULACIONES tbl [42102-240]
