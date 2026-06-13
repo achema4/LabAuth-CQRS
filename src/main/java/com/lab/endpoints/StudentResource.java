@@ -7,6 +7,8 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.List;
+
 @Path("/student")
 public class StudentResource {
 
@@ -29,7 +31,7 @@ public class StudentResource {
     @Path("/getAllStudents")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public StudentDTO getStudent() {
+    public List<StudentDTO> getAllStudent() {
         return service.getAllStudents();
     }
 
