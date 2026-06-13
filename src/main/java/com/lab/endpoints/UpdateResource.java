@@ -1,6 +1,5 @@
 package com.lab.endpoints;
 
-import com.lab.entity.Student;
 import com.lab.service.UpdateService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;

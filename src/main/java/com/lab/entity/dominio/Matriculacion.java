@@ -1,4 +1,4 @@
-package com.lab.entity;
+package com.lab.entity.dominio;
 
 public class Matriculacion {
 

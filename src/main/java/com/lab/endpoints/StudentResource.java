@@ -1,7 +1,7 @@
 package com.lab.endpoints;
 
-import com.lab.entity.Student;
-import jakarta.annotation.security.RolesAllowed;
+import com.lab.entity.dominio.Student;
+import com.lab.entity.dto.StudentDTO;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
@@ -18,15 +18,18 @@ public class StudentResource {
     @Path("/getStudent")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Student getStudent() {
-        return new Student("15","Chema");
+    public StudentDTO getStudent() {
+        StudentDTO student= new StudentDTO();
+        student.setNombre("Chema");
+        student.setId("15");
+        return student;
     }
 
     @Path("/postStudent")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String postStudent(Student student) {
+    public String postStudent(StudentDTO student) {
         return "received student %s".formatted(student.getNombre());
     }
 

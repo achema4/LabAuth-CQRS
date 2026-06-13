@@ -1,7 +1,7 @@
 package com.lab.mappers;
 
-import com.lab.entity.Matriculacion;
-import com.lab.entity.Student;
+import com.lab.entity.dominio.Matriculacion;
+import com.lab.entity.dominio.Student;
 import com.lab.read.entity.StudentView;
 import com.lab.write.entity.MatriculacionEntity;
 import com.lab.write.entity.StudentEntity;

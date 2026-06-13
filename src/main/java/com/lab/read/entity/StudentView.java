@@ -1,6 +1,6 @@
 package com.lab.read.entity;
 
-import com.lab.entity.Matriculacion;
+import com.lab.entity.dominio.Matriculacion;
 
 import java.util.List;
 

@@ -1,13 +1,8 @@
 package com.lab.service;
 
 
-import com.lab.entity.Matriculacion;
-import com.lab.entity.Nota;
-import com.lab.entity.Student;
 import com.lab.mappers.StudentMapper;
 import com.lab.read.repository.StudentReadRepository;
-import com.lab.read.entity.StudentView;
-import com.lab.write.entity.StudentEntity;
 import com.lab.write.repository.StudentRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

@@ -1,9 +1,4 @@
-package com.lab.entity;
-import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+package com.lab.entity.dominio;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,8 +1,9 @@
 package com.lab.endpoints;
 
-import com.lab.entity.Matriculacion;
-import com.lab.entity.Nota;
-import com.lab.entity.Student;
+import com.lab.entity.dominio.Matriculacion;
+import com.lab.entity.dominio.Nota;
+import com.lab.entity.dto.MatriculacionDTO;
+import com.lab.entity.dto.NotaDTO;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
@@ -19,16 +20,20 @@ public class MatriculaResource {
     @Path("/getMatricula")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Matriculacion getMatricula() {
-        Nota nota = new Nota(6.0);
-        return new Matriculacion(-1, "fundamentos", 3, nota);
+    public MatriculacionDTO getMatricula() {
+        NotaDTO nota = new NotaDTO();
+        nota.setValor(6);
+        MatriculacionDTO matriculacion = new MatriculacionDTO();
+        matriculacion.setNombre("Fundamentos");
+        matriculacion.setNota(nota);
+        return matriculacion;
     }
 
     @Path("/postMatricula")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String postMatricula(Matriculacion matricula) {
+    public String postMatricula(MatriculacionDTO matricula) {
         return "received matriculacion %s".formatted(matricula.getNombre());
     }
 }
