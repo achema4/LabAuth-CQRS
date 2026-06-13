@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @ApplicationScoped
 public class StudentMapper {
 
-    public Student toDomain(StudentEntity entity) {
+    public Student entityToDomain(StudentEntity entity) {
         Student student =
                 new Student(entity.getId(), entity.getNombre());
 
@@ -64,12 +64,32 @@ public class StudentMapper {
     }
 
 
-    public Student viewtoDomain(StudentDTO dto) {
+    public Student dTOtoDomain(StudentDTO dto) {
 
         Student student = new Student(dto.getId(), dto.getNombre());
 
         if (dto.getMatriculaciones() != null) {
             dto.getMatriculaciones()
+                    .forEach(m -> student.matricular(
+                            new Matriculacion(
+                                    m.getNombre(),
+                                    m.getCreditos()
+                            )
+                    ));
+        }
+
+        return student;
+    }
+
+    public Student viewToDomain(StudentView view) {
+
+        Student student = new Student(
+                view.id(),
+                view.nombre()
+        );
+
+        if (view.matriculas() != null) {
+            view.matriculas()
                     .forEach(m -> student.matricular(
                             new Matriculacion(
                                     m.getNombre(),

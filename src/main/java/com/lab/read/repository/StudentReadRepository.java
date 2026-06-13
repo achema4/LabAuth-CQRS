@@ -64,4 +64,12 @@ public class StudentReadRepository {
                 })
                 .toList();
     }
+
+    public void dump() {
+
+        System.out.println("===== STUDENTS =====");
+
+        students.forEach((k, v) ->
+                System.out.println(k + " -> " + v));
+    }
 }

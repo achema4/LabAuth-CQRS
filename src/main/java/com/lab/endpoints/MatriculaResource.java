@@ -34,6 +34,7 @@ public class MatriculaResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public String postMatricula(MatriculacionDTO matricula) {
+
         return "received matriculacion %s".formatted(matricula.getNombre());
     }
 }

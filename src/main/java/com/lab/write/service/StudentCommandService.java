@@ -52,6 +52,6 @@ public class StudentCommandService {
                         .findFirst().get();
 
         matricula.setNota(nuevaNota);
-        
+
     }
 }

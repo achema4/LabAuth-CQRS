@@ -21,4 +21,5 @@ public class StudentQueryService {
     public List<StudentView> getAll() {
         return readRepository.findAll();
     }
+
 }
