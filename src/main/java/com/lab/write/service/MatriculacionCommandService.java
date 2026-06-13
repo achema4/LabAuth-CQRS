@@ -30,7 +30,7 @@ public class MatriculacionCommandService {
                         matriculacion.getNombre(),
                         matriculacion.getCreditos(),
                         student,
-                        matriculacion.getNota().valor()
+                        matriculacion.getNota().getValor()
                 );
 
         student.addMatriculacion(entity);

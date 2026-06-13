@@ -52,7 +52,6 @@ public class StudentCommandService {
                         .findFirst().get();
 
         matricula.setNota(nuevaNota);
-
-        // JPA dirty checking (no necesitas persist explícito)
+        
     }
 }
