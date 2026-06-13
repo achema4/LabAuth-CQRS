@@ -17,7 +17,6 @@ public class StudentResource {
 
     @Path("/getStudent")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Student getStudent() {
         return new Student("15","Chema");
@@ -26,7 +25,7 @@ public class StudentResource {
     @Path("/postStudent")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String postStudent(Student student) {
         return "received student %s".formatted(student.getNombre());
     }

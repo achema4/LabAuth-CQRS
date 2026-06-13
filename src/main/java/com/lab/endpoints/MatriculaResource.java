@@ -18,7 +18,6 @@ public class MatriculaResource {
 
     @Path("/getMatricula")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Matriculacion getMatricula() {
         Nota nota = new Nota(6.0);
@@ -28,7 +27,7 @@ public class MatriculaResource {
     @Path("/postMatricula")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String postMatricula(Matriculacion matricula) {
         return "received matriculacion %s".formatted(matricula.getNombre());
     }

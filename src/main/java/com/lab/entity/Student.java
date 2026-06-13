@@ -1,4 +1,10 @@
 package com.lab.entity;
+import lombok.Getter;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,19 +13,14 @@ public class Student {
 
     private final String id;
     private final String nombre;
-    private final List<Matriculacion> matriculaciones;
+    private final List<Matriculacion> matriculaciones = new ArrayList<>();
 
     public Student(String id, String nombre) {
-        if (id == null || id.isBlank()) {
-            throw new IllegalArgumentException("Id requerido");
-        }
-        if (nombre == null || nombre.isBlank()) {
-            throw new IllegalArgumentException("Nombre requerido");
-        }
+        if (id == null || id.isBlank()) throw new IllegalArgumentException("Id requerido");
+        if (nombre == null || nombre.isBlank()) throw new IllegalArgumentException("Nombre requerido");
 
         this.id = id;
         this.nombre = nombre;
-        this.matriculaciones = new ArrayList<>();
     }
 
     public String getId() {
@@ -35,7 +36,7 @@ public class Student {
     }
 
     public void matricular(Matriculacion matriculacion) {
-        this.matriculaciones.add(matriculacion);
+        matriculaciones.add(matriculacion);
     }
 
     public int totalCreditos() {
@@ -44,3 +45,6 @@ public class Student {
                 .sum();
     }
 }
+
+
+
