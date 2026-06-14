@@ -11,6 +11,7 @@ import lombok.Setter;
 public class MatriculacionEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String asignatura;
