@@ -26,7 +26,6 @@ public class MatriculacionCommandService {
 
         MatriculacionEntity entity =
                 new MatriculacionEntity(
-                        matriculacion.getId() != -1 ? String.valueOf(matriculacion.getId()) : null,
                         matriculacion.getNombre(),
                         matriculacion.getCreditos(),
                         student,

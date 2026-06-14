@@ -28,7 +28,6 @@ public class MatriculacionEntity {
     }
 
     public MatriculacionEntity(
-            String id,
             String asignatura,
             Integer creditos,
             StudentEntity student,

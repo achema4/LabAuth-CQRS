@@ -50,7 +50,6 @@ public class StudentMapper {
                 .forEach(m -> {
                     MatriculacionEntity matricula =
                             new MatriculacionEntity(
-                                    String.valueOf(m.getId()),
                                     m.getNombre(),
                                     m.getCreditos(),
                                     entity,
