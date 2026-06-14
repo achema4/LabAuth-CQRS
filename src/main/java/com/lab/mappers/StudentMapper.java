@@ -54,7 +54,7 @@ public class StudentMapper {
                                     m.getNombre(),
                                     m.getCreditos(),
                                     entity,
-                                    m.getNota().getValor()
+                                    m.getNota() != null ? m.getNota().getValor() : null
                             );
 
                     entity.addMatriculacion(matricula);
