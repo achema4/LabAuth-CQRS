@@ -1,9 +1,13 @@
 package com.lab.write.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "matriculaciones")
+@Getter
+@Setter
 public class MatriculacionEntity {
 
     @Id
@@ -11,9 +15,9 @@ public class MatriculacionEntity {
 
     private String asignatura;
 
-    private int creditos;
+    private Integer creditos;
 
-    private double nota;
+    private Double nota;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id")
@@ -25,41 +29,15 @@ public class MatriculacionEntity {
     public MatriculacionEntity(
             String id,
             String asignatura,
-            int creditos,
+            Integer creditos,
             StudentEntity student,
-            double nota) {
+            Double nota) {
 
         this.id = id;
         this.asignatura = asignatura;
         this.creditos = creditos;
         this.student = student;
         this.nota=nota;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getAsignatura() {
-        return asignatura;
-    }
-
-    public int getCreditos() {
-        return creditos;
-    }
-
-    public double getNotat(){return nota;}
-
-    public StudentEntity getStudent() {
-        return student;
-    }
-
-    public void setStudent(StudentEntity studentEntity) {
-        this.student=studentEntity;
-    }
-
-    public void setNota(double nuevaNota) {
-        this.nota=nuevaNota;
     }
 }
 
