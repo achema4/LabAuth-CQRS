@@ -30,10 +30,29 @@ jobs:
           podman save cqrs-api:1.0 -o cqrs-api.tar
           sudo k3s ctr images import cqrs-api.tar
 
+      - name: Deploy H2
+        run: |
+          export KUBECONFIG=$HOME/.kube/config
+          kubectl apply -n cqrs-lab -f k8s/h2.yaml
+
+
+      - name: Wait for H2
+        run: |
+          export KUBECONFIG=$HOME/.kube/config
+          kubectl wait \
+            --for=condition=available \
+            deployment/h2-db \
+            -n cqrs-lab \
+            --timeout=60s
+
+      
+
       - name: Deploy to Kubernetes
         run: |
           export KUBECONFIG=$HOME/.kube/config
-          kubectl apply -n cqrs-lab -f k8s/
+          kubectl apply -f k8s/cqrs-api-deployment.yaml
+          kubectl apply -f k8s/cqrs-api-service.yaml
+
 
       - name: Restart deployment
         run: |
