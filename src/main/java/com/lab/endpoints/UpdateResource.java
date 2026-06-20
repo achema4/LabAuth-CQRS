@@ -26,7 +26,7 @@ public class UpdateResource {
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     public String synchronize() {
-        updateService.update();
+        updateService.update(); //Ready
         return "Read model synchronized";
     }
 }
