@@ -1,13 +1,20 @@
 package com.lab.entity.dominio;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Matriculacion {
 
-    private int id;
+    private String id;
     private final String nombre;
     private final int creditos;
     private Nota nota;
 
-    public Matriculacion(int id, String nombre, int creditos, Nota nota) {
+    public Matriculacion(String id, String nombre, int creditos, Nota nota) {
         this.id = id;
         if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre no puede ser vacío");
@@ -51,12 +58,8 @@ public class Matriculacion {
         return nota;
     }
 
-    public void  setNota(Nota nota){
 
-        this.nota=nota;
-    }
-
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 }

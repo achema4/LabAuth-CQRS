@@ -1,11 +1,13 @@
 package com.lab.endpoints;
 
 import com.lab.entity.dominio.Student;
+import com.lab.entity.dto.MatriculacionDTO;
 import com.lab.entity.dto.StudentDTO;
 import com.lab.service.CQRSService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
@@ -15,33 +17,67 @@ public class StudentResource {
     @Inject
     CQRSService service;
 
-    @Path("/hello")
+
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "Hello from Student REST";
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public StudentDTO get(
+            @PathParam("id") String id) {
+
+        return service.getStudent(id);
     }
 
-    @Path("/getStudent/{id}")
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public StudentDTO getStudent(@PathParam("id") String id) {
-       return service.getStudent(id);
-    }
-    @Path("/getAllStudents")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<StudentDTO> getAllStudent() {
+    public List<StudentDTO> getAll() {
         return service.getAllStudents();
     }
 
-    @Path("/postStudent")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String postStudent(StudentDTO student) {
-        service.postStudent(student);
-        return "received student %s".formatted(student.getNombre());
+    public Response createStudent(StudentDTO dto) {
+
+        service.createStudent(dto);
+
+        return Response.status(Response.Status.CREATED)
+                .build();
     }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateStudent(
+            @PathParam("id") String id,
+            StudentDTO dto) {
+        service.updateStudent(id,dto);
+
+        return Response.noContent().build();
+    }
+
+
+    @POST
+    @Path("/{id}/matriculaciones")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addMatricula(
+            @PathParam("id") String id,
+            MatriculacionDTO dto) {
+
+        service.addMatriculacion(id, dto);
+
+        return Response.status(201).build();
+    }
+
+
+    @DELETE
+    @Path("/{id}")
+    public Response delete(
+            @PathParam("id") String id) {
+
+        service.deleteStudent(id);
+
+        return Response.noContent().build();
+    }
+
 
 }

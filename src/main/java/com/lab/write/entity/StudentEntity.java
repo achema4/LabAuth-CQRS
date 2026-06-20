@@ -49,4 +49,5 @@ public class StudentEntity {
         matricula.setStudent(this);
         this.matriculaciones.add(matricula);
     }
+
 }

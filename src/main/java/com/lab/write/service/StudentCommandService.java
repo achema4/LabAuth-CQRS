@@ -2,12 +2,12 @@ package com.lab.write.service;
 
 import com.lab.entity.dominio.Student;
 import com.lab.mappers.StudentMapper;
-import com.lab.write.entity.MatriculacionEntity;
 import com.lab.write.entity.StudentEntity;
 import com.lab.write.repository.StudentRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import java.util.Optional;
 
 @ApplicationScoped
 public class StudentCommandService {
@@ -40,18 +40,7 @@ public class StudentCommandService {
     }
 
     @Transactional
-    public void cambiarNota(String studentId, String matriculaId, double nuevaNota) {
-
-        StudentEntity student =
-                repository.findWithMatriculas(studentId);
-
-        MatriculacionEntity matricula =
-                student.getMatriculaciones()
-                        .stream()
-                        .filter(m -> m.getId().equals(matriculaId))
-                        .findFirst().get();
-
-        matricula.setNota(nuevaNota);
-
+    public Optional<StudentEntity> getById(String id) {
+        return Optional.ofNullable(repository.findById(Long.valueOf(id)));
     }
 }

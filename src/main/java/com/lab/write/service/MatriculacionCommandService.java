@@ -36,4 +36,5 @@ public class MatriculacionCommandService {
 
         studentRepository.persist(student);
     }
+
 }
