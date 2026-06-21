@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: h2
-          image: oscarfonts/h2:2.2.224
+          image: oscarfonts/h2:2.4.240
           command:
             - java
             - -cp
