@@ -15,22 +15,13 @@ spec:
     spec:
       containers:
         - name: h2
-          image: oscarfonts/h2:2.4.240
-          command:
-            - java
-            - -cp
-            - /opt/h2/bin/h2-2.2.224.jar
-            - org.h2.tools.Server
-          args:
-            - "-tcp"
-            - "-tcpAllowOthers"
-            - "-tcpPort"
-            - "9092"
-            - "-ifNotExists"
-            - "-web"
-            - "-webAllowOthers"
-            - "-webPort"
-            - "8082"
+          image: h2-db:2.4.240
+          imagePullPolicy: Never
+          ports:
+            - name: tcp
+              containerPort: 9092
+            - name: web
+              containerPort: 8082
 ---
 apiVersion: v1
 kind: Service

@@ -30,6 +30,15 @@ jobs:
           podman save cqrs-api:1.0 -o cqrs-api.tar
           sudo k3s ctr images import cqrs-api.tar
 
+      - name: Build H2 image
+        run: |
+          podman build -f Dockerfile.h2 -t h2-db:2.4.240 .
+
+      - name: Import H2 image into K3s
+        run: |
+          podman save h2-db:2.4.240 -o h2-db.tar
+          sudo k3s ctr images import h2-db.tar
+
       - name: Deploy H2
         run: |
           export KUBECONFIG=$HOME/.kube/config
@@ -57,3 +66,12 @@ jobs:
       - name: Restart deployment
         run: |
           kubectl rollout restart deployment cqrs-api -n cqrs-lab
+
+      - name: Wait for cqrs-api
+        run: |
+          export KUBECONFIG=$HOME/.kube/config
+
+          kubectl rollout status \
+          deployment/cqrs-api \
+          -n cqrs-lab \
+          --timeout=120s
