@@ -15,12 +15,9 @@ spec:
     spec:
       containers:
         - name: h2
-          image: oscarfonts/h2
+          image: oscarfonts/h2:2.2.224
           command:
-            - java
-            - -cp
-            - /opt/h2/bin/h2.jar
-            - org.h2.tools.Server
+            - /opt/h2/bin/h2.sh
           args:
             - "-tcp"
             - "-tcpAllowOthers"
@@ -31,10 +28,10 @@ spec:
             - "-webPort"
             - "8082"
           ports:
-            - containerPort: 9092
-              name: tcp
-            - containerPort: 8082
-              name: web
+            - name: tcp
+              containerPort: 9092
+            - name: web
+              containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
