@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: h2
-          image: h2-db:2.4.240
+          image: localhost/h2-db:2.4.240
           imagePullPolicy: Never
           ports:
             - name: tcp
