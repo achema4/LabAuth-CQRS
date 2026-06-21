@@ -1,4 +1,4 @@
-FROM docker.io/eclipse-temurin:21-jdk
+FROM eclipse-temurin:21-jre
 
 WORKDIR /opt/h2
 
@@ -8,12 +8,4 @@ EXPOSE 9092 8082
 
 ENTRYPOINT ["java","-cp","/opt/h2/h2.jar","org.h2.tools.Server"]
 
-CMD [
-  "-tcp",
-  "-tcpAllowOthers",
-  "-tcpPort","9092",
-  "-ifNotExists",
-  "-web",
-  "-webAllowOthers",
-  "-webPort","8082"
-]
+CMD ["-tcp","-tcpAllowOthers","-tcpPort","9092","-ifNotExists","-web","-webAllowOthers","-webPort","8082"]
