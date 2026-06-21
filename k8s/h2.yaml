@@ -16,6 +16,11 @@ spec:
       containers:
         - name: h2
           image: oscarfonts/h2
+          command:
+            - java
+            - -cp
+            - /opt/h2/bin/h2.jar
+            - org.h2.tools.Server
           args:
             - "-tcp"
             - "-tcpAllowOthers"
