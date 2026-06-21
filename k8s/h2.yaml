@@ -16,9 +16,20 @@ spec:
       containers:
         - name: h2
           image: oscarfonts/h2
+          args:
+            - "-tcp"
+            - "-tcpAllowOthers"
+            - "-tcpPort"
+            - "9092"
+            - "-web"
+            - "-webAllowOthers"
+            - "-webPort"
+            - "8082"
           ports:
             - containerPort: 9092
+              name: tcp
             - containerPort: 8082
+              name: web
 ---
 apiVersion: v1
 kind: Service
